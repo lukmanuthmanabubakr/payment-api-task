@@ -1,5 +1,6 @@
 name: Node.js CI
 
+# Trigger workflow on push or pull request to master branch
 on:
   push:
     branches: [master]
@@ -15,11 +16,23 @@ jobs:
         node-version: [14.x]
 
     steps:
+      # Step 1: Check out your repo
       - uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js on Ubuntu runner
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+
+      # Step 3: Install dependencies using npm ci (requires package-lock.json)
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Run build if present
+      - name: Build (if exists)
+        run: npm run build --if-present
+
+      # Step 5: Run Jest tests
+      - name: Run tests
+        run: npm test
