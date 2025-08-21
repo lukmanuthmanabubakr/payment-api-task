@@ -45,7 +45,7 @@ exports.initiatePayment = async (req, res) => {
   }
 };
 
-
+//Fot the payment status
 exports.getPaymentStatus = async (req, res) => {
   try {
     const { id } = req.params;
