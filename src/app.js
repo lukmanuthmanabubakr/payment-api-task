@@ -4,8 +4,8 @@ const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true })); // Parse x-www-form-urlencoded
-app.use(express.json()); // Parse JSON
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
 
 // versioning
 app.use("/api/v1/payments", paymentRoutes);
