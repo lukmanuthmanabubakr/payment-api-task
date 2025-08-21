@@ -6,6 +6,7 @@ const connectDB = require("./src/config/db");
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
+//Connection of mongodb
 connectDB();
 
 app.listen(PORT, () => {
