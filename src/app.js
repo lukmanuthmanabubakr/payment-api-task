@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 
-// versioning
+// versioning code
 app.use("/api/v1/payments", paymentRoutes);
 
 app.get("/", (req, res) => {
